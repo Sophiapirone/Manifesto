@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ants Animation</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #dbcaac;
+            font-family: Garamond, serif;
+        }
+
+        .words {
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+        }
+        .title {
+            text-align: center;
+            font-size: 8rem; /* Adjust font size as needed */
+            line-height: 1.5; /* Spacing between lines */
+            color: #000000; /* Dark gray text color */
+        }
+        #image {
+            position: absolute;
+            width: 50px; /* Adjust size of the image */
+            height: 50px; /* Maintain consistent aspect ratio */
+        }
+        .trail {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            pointer-events: none; /* Prevent interaction with the trail */
+        }
+    </style>
+</head>
+<body>
+    <script>
+        document.addEventListener('mousemove', function (event) {
+            const trailImage = document.createElement('img'); // Create an image element
+            trailImage.src = 'ant1.png'; // Replace with your image path
+            trailImage.className = 'trail';
+
+            // Position the image at the mouse location
+            trailImage.style.left = `${event.pageX - 15}px`; // Offset by half the image size
+            trailImage.style.top = `${event.pageY - 15}px`;
+
+            // Add the image to the body
+            document.body.appendChild(trailImage);
+
+            // Remove the image after a short delay to create a fading effect
+            setTimeout(() => {
+                trailImage.remove();
+            }, 500); // 500ms before removal
+        });
+    </script>
+    <div class="words">
+        <div class="title">
+            <b>
+            Together <br>
+            We <br>
+            Rise, <br>
+            Connected <br>
+            Like <br>
+            Ants
+            </b>
+        </div>
+    </div>
+</body>
+</html>
